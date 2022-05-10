@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      #main {
+        width: 600px;
+        height: 400px;
+      }
+    </style>
+    <!-- <script src="./echarts.min.js"></script> -->
+    <script src="./echarts.js"></script>
+  </head>
+  <body>
+    <div id="main"></div>
+
+    <script>
+      // 1. 调用init方法
+      const myChart = echarts.init(document.querySelector('#main'))
+
+      // 2. 调用setOption方法提供配置
+      /**
+       * 常见配置
+       *  1. title  用于设置标题
+       *      text: 用于指定标题的文本
+       *      show: 用于控制是否显示标题
+       *  2. series: 控制图表的数据
+       *    // series: 控制图表的数据
+       *  3. tooltip: 提示框组件
+       *
+       *  4. legend: 图例
+       */
+      const option = {
+        title: {
+          text: '我是一个饼图',
+        },
+        tooltip: {},
+        series: [
+          {
+            type: 'pie',
+            data: [
+              {
+                name: '学生',
+                value: 20,
+              },
+              {
+                name: '老师',
+                value: 30,
+              },
+              {
+                name: '工人',
+                value: 15,
+              },
+              {
+                name: '军人',
+                value: 5,
+              },
+            ],
+          },
+        ],
+
+        legend: {},
+      }
+      myChart.setOption(option)
+    </script>
+  </body>
+</html>

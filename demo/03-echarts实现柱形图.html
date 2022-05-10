@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="./echarts.min.js"></script>
+  </head>
+  <body>
+    <div id="main" style="width: 600px; height: 400px"></div>
+
+    <script>
+      const myChart = echarts.init(document.querySelector('#main'))
+      /**
+       * 常见配置
+       *  1. title  用于设置标题
+       *      text: 用于指定标题的文本
+       *      show: 用于控制是否显示标题
+       *  2. series: 控制图表的数据
+       *    // series: 控制图表的数据
+       *  3. tooltip: 提示框组件
+       *
+       *  4. legend: 图例
+       *  5. xAxis
+       *      xAxis: {  type: 'category', data: [''] }
+       *  6.  yAxis: {  type: 'value' }
+       *
+       *  7. color
+       */
+      const option = {
+        title: {
+          text: '柱形图',
+        },
+        series: [
+          {
+            name: '数学成绩',
+            type: 'bar',
+            data: [80, 90, 85, 40, 22, 35],
+          },
+          {
+            name: '语文成绩',
+            type: 'bar',
+            data: [10, 40, 75, 100, 90, 55],
+          },
+        ],
+        xAxis: {
+          // 类目：
+          type: 'category',
+          // 指定刻度
+          data: ['张三', '李四', '王五', '赵六', '田七', '王八'],
+        },
+        yAxis: {
+          // 根据数据自动生成刻度
+          type: 'value',
+        },
+        tooltip: {},
+        legend: {},
+      }
+      myChart.setOption(option)
+    </script>
+  </body>
+</html>
